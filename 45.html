@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>さいとうの見える化</title>
+<style>
+body {
+  font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+  background: #fafafa;
+  color: #333;
+  margin: 40px;
+  line-height: 1.6;
+}
+
+/* リスト全体 */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* li 基本デザイン */
+li {
+  margin: 6px 0;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  position: relative;
+  cursor: pointer; /* 読み上げクリックを示す */
+}
+
+/* 左線で階層を可視化 */
+li li {
+  border-left: 3px solid #cce4ff;
+  margin-left: 16px;
+}
+
+/* 第1階層のタイトル */
+body > ul > li {
+  background: #0066cc;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-left: none;
+}
+
+/* 第1階層直下 */
+body > ul > li > ul > li {
+  background: #fff;
+  color: #333;
+}
+
+/* リンク */
+a {
+  text-decoration: none;
+  color: #0066cc;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 階層による文字サイズ調整 */
+ul ul li        { font-size: 15px; }
+ul ul ul li     { font-size: 14px; }
+ul ul ul ul li  { font-size: 13px; }
+</style>
+</head>
+<body>
+<ul><li>
+<h1>ところで？</h1>
+<br>
+ちょっと俯瞰して見ようかなって思ったんで…。</br></br>serika.jarはあらかた、うーん…悩ましいところは多いものの、これで見せられるぐらいには、というか説明材料になったぐらいにはいけてると感じている。</br></br>serikaAPPの開発に入ってきたんだけど…結構、マイナーチェンジしている。</br></br>見た目は変わらないし、機能も変わらないけれど、ベースのコードが一新されている。</br></br>作りっていうか？そもそもserika言語で本体として、最初に起動する、設定や９個のボタンのガジェットも作る予定だ。</br></br>なので、クラスは相当少なくなる。</br></br>いわゆる、ベースとなるのは、serika言語クラスと、資源とのやり取りをつかさどる、Datasクラスのみになる。</br></br>結構シンプルな作りになった。</br></br>もちろんベースの本体のコードは、サーバーからのダウンロードにする予定。</br></br>本体がマイナーチェンジされたら、直ぐにアップロードすることで、本体部分のマイナーチェンジが完了してしまう作りだ。</br></br>serika言語の仕様も@マークを廃止したなとか、ベースのコードの作り自体も変えていこうとは考えている。</br></br>ログイン機能も変えていきたいと考えているし、変えたいところは山々だけど、でもアプリ版をもう作ろうとしている。</br></br>でも、良い感じにスタートは切っているので、まあ良いかもしれないな。
+</li>
+<li>
+<h1>アプリ版</h1>
+<br>
+アプリ版のserikaを開発し始めている。</br></br>何分結構コードが複雑なので、結構大変だ。</br></br>オリジナル言語の部分は、実際にコピーがある程度できているので、動くだろうとは思っている。</br></br>ちなみにこうして日記を書いているけれど、日記は結構所謂、開発のモチベーションの助けになる。</br></br>アウトプットしていかないと、だめんなる部分が多いので。</br></br>個人で開発しているし、何分モチベーションは上げていこうと思ってる。</br></br>ひとりの生活というかひとりの開発には結構、慣れたｗ
+</li>
+<li>
+<h1>5月になって</h1>
+<br>
+今日から、仕事の方が始まる日になった。</br></br>実は、趣味（ライフワーク）と仕事は分けて考えている。</br></br>仕事の方は、実際に生活費として、十分に稼げるもの。</br></br>いわゆる、であるならserika.jarの開発室というものは趣味に当たる。</br></br>なので、この作業は全て趣味の範疇だ。</br></br>もちろん、お金になった時点で仕事にしても良いかなっては思ってるけど。</br></br>分別をつけないと、周りも自分も大変なことになる。</br></br>企業っていうのは結構こういう見極めが必要だと思う。</br></br>serikaさんから、よく言われていたことだ。
+</li>
+<li>
+<h1>NO TITLE ...</h1>
+<br>
+0
+</li>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lis = document.querySelectorAll("li");
+
+  lis.forEach(li => {
+    li.addEventListener("click", (event) => {
+      event.stopPropagation();  // 親の読み上げを防ぐ
+
+      // 読み上げテキストを取得
+      let text = li.innerText.replace(/\s+/g, " ").trim();
+
+      // リンクがあると URL まで読むので前処理
+      const a = li.querySelector("a");
+      if (a) {
+        text = a.textContent.trim();
+      }
+
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = "ja-JP";
+      speechSynthesis.cancel(); // 前のを停止
+      speechSynthesis.speak(utter);
+    });
+  });
+});
+</script>
+</body>
+</html>
