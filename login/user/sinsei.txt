@@ -1,0 +1,2 @@
+<sinsei><id>taka</id><bank>333</bank><name>サイトウタカヒコ</name></sinsei>
+<sinsei><id>taka2</id><bank>222</bank><name>齋藤 尚彦</name></sinsei>
