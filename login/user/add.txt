@@ -1,1 +1,0 @@
-<user><id>taka</id><pwd>aru</pwd><mail>takaihikosaitoh@gmail.com</mail></user><user><id>taka2</id><pwd>aru2</pwd><mail>takaihikosaitoh@gmail.com</mail></user><user><id>taka3</id><pwd>asdfasdf</pwd><mail>takaihikosaitoh@gmail.com</mail><syoukai>takahikosaitoh</syoukai></user>

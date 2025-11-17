@@ -1,1 +1,0 @@
-<puser><uname>takahikosaitoh</uname><name>takahikosaitoh</name><siten>厚木</siten><syurui>普通</syurui><bank>202</bank><mail>takaihikosaitoh@gmail.com</mail></puser>

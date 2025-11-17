@@ -1,1 +1,0 @@
-<user><bank>333</bank><name>齋藤 尚彦</name></user>
