@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>さいとうの見える化</title>
+<style>
+body {
+  font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+  background: #fafafa;
+  color: #333;
+  margin: 40px;
+  line-height: 1.6;
+}
+
+/* リスト全体 */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* li 基本デザイン */
+li {
+  margin: 6px 0;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  position: relative;
+  cursor: pointer; /* 読み上げクリックを示す */
+}
+
+/* 左線で階層を可視化 */
+li li {
+  border-left: 3px solid #cce4ff;
+  margin-left: 16px;
+}
+
+/* 第1階層のタイトル */
+body > ul > li {
+  background: #0066cc;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-left: none;
+}
+
+/* 第1階層直下 */
+body > ul > li > ul > li {
+  background: #fff;
+  color: #333;
+}
+
+/* リンク */
+a {
+  text-decoration: none;
+  color: #0066cc;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 階層による文字サイズ調整 */
+ul ul li        { font-size: 15px; }
+ul ul ul li     { font-size: 14px; }
+ul ul ul ul li  { font-size: 13px; }
+</style>
+</head>
+<body>
+<ul><li>
+<h1>NO TITLE ...</h1>
+<br>
+net.axwork/root/</br>このフォルダは8個のボタンで作られる、一切のデータはここに保存されていきます。</br></br>ですので、名前もルートです。</br></br>コンテンツ要素は全て保存されていくわけです。</br></br>いわゆる、コンテンツってここでは、ユーザーが何かしら作りあげる、大体のデータはここに保存されるという内容です。</br></br>もちろん、分類するフォルダも含めてです。</br></br>ちなみに、フォルダが単体でこの、下に入っているモノに関しては、フォルダと捉えます。</br></br>この説明だと、フォルダがフォルダですになるので、当たり前だろと言われそうですが…。</br></br>ただ、言いたいことはこのフォルダ名と同じフォルダ名＋.setという、.setがついただけの同じような名前のファイルがある場合、それは、機能という、立場になります。</br></br>rootの中での決まり事です。</br></br>機能になると、それは、serika内では、その機能の保存する場所がそのフォルダになります。</br></br>ですので、rootの中には2種類の形式があります。</br></br>単にフォルダであるモノ。</br>もう一つに、機能であるモノ。</br></br>機能の場合は、.setというフォルダ名と同じファイルが存在し、その中のテキストに機能のＩＤが書かれていること。</br></br>その場合その機能のフォルダに関しては、その機能の保存内容が入るということ。</br></br>ただし、ここで、機能の保存データがすべてという説明は適切でないと感じます。</br></br>その、パスに対してのその機能に適した保存データが入ります。</br></br>機能ごとに保存する内容が、変わってくるということは実際には、使っていてわかるはずですので、始めてもし読むのであれば、軽くそんなもんｗって捉えて大丈夫です。
+</li>
+<li>
+<h1>NO TITLE ...</h1>
+<br>
+net.axwork/mieruka</br>このフォルダには、見える化をした際に、全てのデータが.htmlのファイル等で保存されます。</br></br>保存というか生成されて保存されます。</br></br>このフォルダで、mieruka.htmlがいわゆる、index.htmlというトップのモノです。</br></br>こちらのデータを例えば、FTPソフトを使って、自分の所有するサーバーに、手作業でアップロードすると、もちろんですが、ホームページが作れはします。</br></br>ちなみにですが、それぞれの機能の中のmierukaフォルダの中に、見える化での巡回で行われる、データ生成処理に対しての、機能単体でのことわりを、serika言語で書くと、ここで巡回処理に適応されて、いわゆるＨＴＭＬ化されてフォルダのツリー階層の果てに、生成がされます。</br></br>ですので、ユーザーは見える化作業を行うと、文字通り見える化ができます。</br></br>それに関しては、見え方でというか、デザイン的にユーザーはオリジナルのフォーマットを伴って見える化をすることができます。</br></br>とにかくですが、ここでは保存関係の説明に言及しているのもあり、見える化のデータはここに全て生成されるという説明をして、締めくくります。
+</li>
+<li>
+<h1>NO TITLE ...</h1>
+<br>
+net.axwork/setting</br>というフォルダがあります。</br></br>net.axworkというフォルダ（ルート）の下にあるはずです。</br></br>というかなきゃダメですが…。</br></br>その中に設定関係の全てが保存されています。</br></br>ここに画面の色の設定。フォントの種類の設定、画面の透明度の設定数値。</br></br>メインパネルでの8個のボタンを押したときの現在どのフォルダの階層に居るのか？という情報。</br></br>現在起動している機能の名前。</br></br>ユーザーIDやパスワード。</br></br>何から何まで全てがここに保存されています。
+</li>
+<li>
+<h1>NO TITLE ...</h1>
+<br>
+0
+</li>
+<li>
+<h1>NO TITLE ...</h1>
+<br>
+まずIO関係という名前にしましたが、果たしてこのネーミングは適切なのかを言及すると違う気がします。</br></br>まず、お断りですが、IOとここで言っているのは、ファイル関係、フォルダ関係という意味で言っています。</br></br>いわゆるserika.jarのファイルやフォルダに関する捉え方全般です。</br></br>そういう感じですのですみません。
+</li>
+<li>
+<h1>NO TITLE ...</h1>
+<br>
+0
+</li>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lis = document.querySelectorAll("li");
+
+  lis.forEach(li => {
+    li.addEventListener("click", (event) => {
+      event.stopPropagation();  // 親の読み上げを防ぐ
+
+      // 読み上げテキストを取得
+      let text = li.innerText.replace(/\s+/g, " ").trim();
+
+      // リンクがあると URL まで読むので前処理
+      const a = li.querySelector("a");
+      if (a) {
+        text = a.textContent.trim();
+      }
+
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = "ja-JP";
+      speechSynthesis.cancel(); // 前のを停止
+      speechSynthesis.speak(utter);
+    });
+  });
+});
+</script>
+</body>
+</html>
